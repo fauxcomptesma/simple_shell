@@ -17,7 +17,7 @@ char *lookforcmd(char *str, char **path)
                 }
                 while ((dossier = readdir(dir)) != NULL)
                 {
-                        if (dossier->d_type == DT_REG && strcmp(dossier->d_name, str) == 0)
+                        if (dossier->d_type == DT_REG && _strcmp(dossier->d_name, str) == 0)
                         {
                                 found = -1;
                                 break;
@@ -45,9 +45,9 @@ char *check_add_path(char *str, char **path)
                 return(NULL);
         directory = lookforcmd(str, path);
         pathcmd = malloc(strlen(str) + strlen(directory) + 2 );
-        pathcmd = strcpy(pathcmd, directory);
-        pathcmd = strcat(pathcmd, "/");
-        pathcmd = strcat(pathcmd, str);
-        pathcmd[strlen(str) + strlen(directory) +1] = '\0';
+        pathcmd = _strcpy(pathcmd, directory);
+        pathcmd = _strcat(pathcmd, "/");
+        pathcmd = _strcat(pathcmd, str);
+        pathcmd[_strlen(str) + _strlen(directory) +1] = '\0';
         return (pathcmd);
 }

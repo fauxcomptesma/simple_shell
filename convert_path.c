@@ -29,7 +29,7 @@ char **convert_path(char *pathraw)
                 free(path);
                 return NULL;
             }
-            strncpy(path[count], pathraw + flag, len_path);
+            _strncpy(path[count], pathraw + flag, len_path);
             path[count][len_path] = '\0';
             count++;
             len_path = 0;
@@ -45,7 +45,7 @@ char **convert_path(char *pathraw)
         free(path);
         return NULL;
     }
-    strncpy(path[count], pathraw + flag, len_path);
+    _strncpy(path[count], pathraw + flag, len_path);
     path[count][len_path] = '\0';
     count++;
     path[count] = NULL;

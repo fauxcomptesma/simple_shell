@@ -28,13 +28,17 @@ int main(void)
                 buffer = read_line(&nread);
                 if (nread != -1)
                 {
-                        if(buffer[0] == ' ')
-                                printf("nullo");
                         argcount = get_argc(buffer, nread);
                         command = get_command(buffer, argcount);
+                        if (command == NULL)
+                                continue;
+                        if (command[0] == NULL)
+                                continue;
                         pathflag = is_it_path(command[0]);
                         if (pathflag == 1)
                                 command[0] = check_add_path(command[0], path);
+                        if (pathflag == 2)
+                                continue;
                         if (command[0] == NULL)
                         {
                                 while (command[j] != NULL )
@@ -50,7 +54,6 @@ int main(void)
                 }
                 else
                 {
-                        free(buffer);
                         i = 0;
                 }
         }

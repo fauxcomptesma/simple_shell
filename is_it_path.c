@@ -4,7 +4,9 @@
 */
 int is_it_path(char *str)
 {
-        if (strstr(str, "/bin/") == NULL )
+        if (str == NULL)
+                return (2);
+        if (_strstr(str, "/bin/") == NULL )
                 return(1);
         return(0);
                 
